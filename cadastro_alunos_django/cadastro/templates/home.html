@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Seja bem-vindo!</h2>
+        <br>
+        <a href="{% url 'cadastrar_aluno' %}">Cadastrar novo aluno</a>
+        <!-- <br> -->
+        <a href="{% url 'alunos' %}">Ver lista de alunos</a>
+    </div>
+</body>
+
+</html>

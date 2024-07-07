@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Alunos</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Lista de Alunos</h2>
+        <a href="{% url 'home' %}">Inicio</a>
+        <a href="{% url 'cadastrar_aluno' %}">Cadastrar aluno</a>
+        {% for aluno in alunos %}
+        <ul>
+            <li><label>Nome: </label><a href="{% url 'editar_aluno' aluno.id %}">{{ aluno.nome }}</a></li>
+            <li><label>Idade: {{ aluno.idade }}</label> </li>
+            <li><label>Turma: {{ aluno.turma }}</label> </li>
+        </ul>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

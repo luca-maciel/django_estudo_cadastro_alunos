@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Novo Aluno</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Informe os dados do novo aluno</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if existe %}
+            <button type="submit">Salvar alterações</button>
+            <a href="{% url 'deletar_aluno' aluno.id %}">Deletar aluno</a>
+            {% else %}
+            <button type="submit">Cadastrar</button>
+            {% endif %}
+        </form>
+    </div>
+</body>
+
+</html>
