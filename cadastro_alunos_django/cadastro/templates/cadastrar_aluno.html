@@ -21,7 +21,7 @@
             <button type="submit">Salvar alterações</button>
             <a href="{% url 'deletar_aluno' aluno.id %}">Deletar aluno</a>
             {% else %}
-            <button type="submit">Cadastrar</button>
+            <button type="submit" id="botao_enviar">Cadastrar</button>
             {% endif %}
         </form>
     </div>

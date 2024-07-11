@@ -13,16 +13,37 @@
 <body>
     <div class="container">
         <h2>Lista de Alunos</h2>
-        <a href="{% url 'home' %}">Inicio</a>
-        <a href="{% url 'cadastrar_aluno' %}">Cadastrar aluno</a>
-        {% for aluno in alunos %}
-        <ul>
-            <li><label>Nome: </label><a href="{% url 'editar_aluno' aluno.id %}">{{ aluno.nome }}</a></li>
-            <li><label>Idade: {{ aluno.idade }}</label> </li>
-            <li><label>Turma: {{ aluno.turma }}</label> </li>
-        </ul>
-        <hr>
-        {% endfor %}
+        <a href="{% url 'home' %}" id="link_inicio">Inicio</a>
+        <a href="{% url 'cadastrar_aluno' %}" id="link_cadastro">Cadastrar aluno</a>
+        <table class="area_alunos">
+            <thead>
+                <tr>
+                    <th><label for="nome">Nome</label></th>
+                    <th><label for="idade">Idade</label></th>
+                    <th><label for="turma">Turma</label></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                <tr>
+                    <th><a href="{% url 'editar_aluno' aluno.id %}">{{ aluno.nome }}</a></th>
+                    <td>
+                        <label>{{ aluno.idade }}</label>
+                    </td>
+                    <td>
+                        <label>{{ aluno.turma }}</label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <!-- <ul>
+                <li><label>Idade: {{ aluno.idade }}</label> </li>
+                <li><label>Turma: {{ aluno.turma }}</label> </li>
+            </ul>
+            <hr> -->
+            
+
+        </table>
     </div>
 </body>
 
